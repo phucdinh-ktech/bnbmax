@@ -10,6 +10,12 @@ export default {
         secondary: "#dc8431",
         primary: "#c5772f",
       },
+      backgroundImage: {
+        box: "linear-gradient(132deg, #000000e6 30%, #000 91%)",
+      },
+      boxShadow: {
+        "box-shadow": "6px 8px #fff",
+      },
     },
   },
   plugins: [],
