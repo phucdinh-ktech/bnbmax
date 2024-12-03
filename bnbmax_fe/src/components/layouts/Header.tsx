@@ -9,11 +9,14 @@ const Header = () => {
     <div className="w-full px-5 lg:px-10 z-40">
       <div className="max-w-[1280px] mx-auto flex justify-between items-center h-20 md:h-28">
         <div className="flex gap-20 xl:gap-24">
-          <a className="w-[208px] h-[52.23px] hidden lg:block duration-300">
+          <a
+            href="/"
+            className="w-[208px] h-[52.23px] hidden lg:block duration-300"
+          >
             <img src={svgs.bnbLogoDesktop} className="w-full h-full" />
           </a>
           <a
-            href="#"
+            href="/"
             className="w-[80px] h-[30.3px] block lg:hidden duration-300"
           >
             <img src={svgs.bnbLogoMobile} className="w-full h-full" />
@@ -31,12 +34,12 @@ const Header = () => {
               </a>
             </li>
             <li className="text-base hover:text-secondary-hover">
-              <a href="#" className="p-4 text-white">
+              <a href="#referral" className="p-4 text-white">
                 Referral
               </a>
             </li>
             <li className="text-base  hover:text-secondary-hover">
-              <a href="#" className="p-4 text-white">
+              <a href="#levels" className="p-4 text-white">
                 Levels
               </a>
             </li>
