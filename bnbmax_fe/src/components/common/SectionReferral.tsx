@@ -6,6 +6,7 @@ const SectionReferral = () => {
   const { width } = useWindowSize();
   return (
     <section
+      id="referral"
       className="relative w-full h-full flex flex-col items-center bg-[#131313] lg:bg-transparent bg-no-repeat bg-right bg-cover lg:bg-[length:calc(40vw_+_80px)_100%] px-5 lg:px-10 py-20"
       style={{
         backgroundImage:
@@ -15,7 +16,7 @@ const SectionReferral = () => {
       }}
     >
       <div className="relative w-full max-w-[1280px] mx-auto flex flex-col-reverse lg:flex-row gap-5 lg:gap-20 items-center">
-        <div className="w-full lg:w-[calc(60%_-_40px)] flex flex-col gap-4">
+        <div className="w-full lg:w-[calc(50%-40px)] flex flex-col gap-4">
           <h2 className="text-2xl font-bold"> Your referral link </h2>
           <hr className="w-14" />
           <p className="text-gray-400">

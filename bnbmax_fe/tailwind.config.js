@@ -12,6 +12,8 @@ export default {
       },
       backgroundImage: {
         box: "linear-gradient(132deg, #000000e6 30%, #000 91%)",
+        "card-levels":
+          "linear-gradient(124.26deg, #d9d9d917 30.78%, #73737300 91.04%)",
       },
       boxShadow: {
         "box-shadow": "6px 8px #fff",
