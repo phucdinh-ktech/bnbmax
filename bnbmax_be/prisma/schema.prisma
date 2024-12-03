@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AccumulatePoints {
+  id              Int                      @id @default(autoincrement())
+  wallet_address  String                   @unique
+  points          Int                      @default(0)
+  detailsSent     AccumulatePointsDetail[] @relation("SenderRelation")   
+  detailsReceived AccumulatePointsDetail[] @relation("ReceiverRelation") 
+}
+
+model AccumulatePointsDetail {
+  id              Int               @id @default(autoincrement())
+  sender_user_id  Int
+  receive_user_id Int
+  sender_user     AccumulatePoints  @relation("SenderRelation", fields: [sender_user_id], references: [id]) 
+  receive_user    AccumulatePoints  @relation("ReceiverRelation", fields: [receive_user_id], references: [id]) 
+  createdAt       DateTime          @default(now())
+
+  @@unique([sender_user_id, receive_user_id])  
+}

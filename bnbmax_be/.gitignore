@@ -1,0 +1,19 @@
+    # Ignore node_modules folder
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore environment variables file
+.env
+
+# Ignore npm package lock files (if you want to regenerate them)
+package-lock.json
+
+# Ignore any temporary files created by the editor (VSCode, etc.)
+.vscode/
+.idea/
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
