@@ -1,13 +1,15 @@
 import images from "@/assets/images";
 import svgs from "@/assets/svgs";
 import WrapperCardLevel from "@/components/common/WrapperCardLevel";
+import useWindowSize from "@/utils/functions/useSizeWindow";
 
 const SectionLevels = () => {
+  const { width } = useWindowSize();
   return (
     <section
       id="levels"
       className="relative w-full lg:gap-24 lg:bg-none bg-no-repeat bg-right-top px-5 lg:px-10 py-20 lg:py-48"
-      style={{ backgroundImage: `url(${images.bgTotal})` }}
+      style={{ backgroundImage: width < 1024 ? `url(${images.bgTotal})` : "" }}
     >
       <div className="w-full flex flex-col items-center gap-14 max-w-[1280px] mx-auto">
         <div className="relative w-full container flex flex-col-reverse lg:flex-row gap-5 lg:gap-20 items-center">

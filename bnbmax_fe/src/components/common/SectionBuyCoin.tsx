@@ -6,7 +6,7 @@ const SectionBuyCoin = () => {
   return (
     <>
       <section
-        className="w-full relative px-10 flex flex-col-reverse lg:flex-col justify-end items-center md:justify-center gap-5 h-[81svh] md:h-[calc(100svh-80px)] bg-origin-content lg:bg-origin-padding lg:bg-cover bg-bottom bg-repeat-x lg:bg-none lg:px-10 pt-44 pb-0 lg:pb-40"
+        className="w-full relative px-10 flex flex-col-reverse lg:flex-col justify-end items-center md:justify-center gap-5 h-[81svh] md:h-[calc(100svh-80px)] bg-bottom bg-repeat-x lg:bg-none lg:px-10 pt-44 pb-0 lg:pb-40"
         style={{ backgroundImage: `url(${svgs.heroPattern})` }}
         id="buy-coin"
       >
@@ -17,7 +17,7 @@ const SectionBuyCoin = () => {
           </div>
         </div>
 
-        <div className="lg:absolute lg:top-[30%] lg:right-[40%] lg:translate-x-1/2 max-w-[60%] lg:max-w-none">
+        <div className="lg:absolute lg:top-[22%] lg:right-[42%] lg:translate-x-1/2 max-w-[60%] lg:max-w-none">
           <img
             src={svgs.heroShape}
             alt="here-shape-icon"
@@ -25,15 +25,15 @@ const SectionBuyCoin = () => {
           />
         </div>
         <a
-          href="#"
-          className="lg:absolute left-[calc(50%_-_22px)] bottom-[-22px] w-11 h-11 p-[17.5px_16px] hidden lg:flex items-center justify-center bg-white hover:bg-primary rounded-full animate-bounce duration-300"
+          href="#levels"
+          className="lg:absolute left-[calc(50%_-_22px)] bottom-[-22px] w-11 h-11 p-[14px] hidden lg:flex items-center justify-center bg-white hover:bg-primary rounded-full animate-bounce duration-300"
         >
           <img src={svgs.arrowDown} className="w-full h-full" />
         </a>
 
         <a
-          href="#"
-          className="absolute bottom-12 w-11 h-11 p-[17.5px_16px] flex lg:hidden items-center justify-center bg-white hover:bg-primary rounded-full animate-bounce mt-2 duration-300"
+          href="#levels"
+          className="absolute bottom-12 w-11 h-11 p-[14px] flex lg:hidden items-center justify-center bg-white hover:bg-primary rounded-full animate-bounce mt-2 duration-300"
         >
           <img src={svgs.arrowDown} className="w-full h-full" />
         </a>
