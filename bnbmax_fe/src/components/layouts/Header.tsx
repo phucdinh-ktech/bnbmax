@@ -26,7 +26,7 @@ const Header = () => {
               </a>
             </li>
             <li className="text-base hover:text-secondary-hover">
-              <a href="#" className="p-4 text-white">
+              <a href="#reward" className="p-4 text-white">
                 Reward
               </a>
             </li>
