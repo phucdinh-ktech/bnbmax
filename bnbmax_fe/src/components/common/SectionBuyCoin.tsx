@@ -6,7 +6,7 @@ const SectionBuyCoin = () => {
   return (
     <>
       <section
-        className="w-full relative px-10 flex flex-col-reverse lg:flex-col justify-end items-center md:justify-center gap-5 h-[calc(100svh-80px)] md:h-[calc(100svh-80px)] bg-no-repeat bg-cover bg-bottom lg:bg-none lg:px-10 pt-44 pb-0 lg:pb-40"
+        className="w-full relative px-10 flex flex-col-reverse lg:flex-col justify-end items-center md:justify-center gap-5 h-[81svh] md:h-[calc(100svh-80px)] bg-origin-content lg:bg-origin-padding lg:bg-cover bg-bottom bg-repeat-x lg:bg-none lg:px-10 pt-44 pb-0 lg:pb-40"
         style={{ backgroundImage: `url(${svgs.heroPattern})` }}
         id="buy-coin"
       >
@@ -33,7 +33,7 @@ const SectionBuyCoin = () => {
 
         <a
           href="#"
-          className="absolute bottom-14 w-11 h-11 p-[17.5px_16px] flex lg:hidden items-center justify-center bg-white hover:bg-primary rounded-full mb-14 animate-bounce mt-2 duration-300"
+          className="absolute bottom-12 w-11 h-11 p-[17.5px_16px] flex lg:hidden items-center justify-center bg-white hover:bg-primary rounded-full animate-bounce mt-2 duration-300"
         >
           <img src={svgs.arrowDown} className="w-full h-full" />
         </a>
