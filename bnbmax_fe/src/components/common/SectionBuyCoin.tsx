@@ -6,7 +6,7 @@ const SectionBuyCoin = () => {
   return (
     <>
       <section
-        className="w-full relative px-10 flex flex-col-reverse lg:flex-col justify-end items-center md:justify-center gap-5 h-[81svh] md:h-[calc(100svh-80px)] bg-bottom bg-repeat-x lg:bg-none lg:px-10 pt-44 pb-0 lg:pb-40"
+        className="w-full relative px-10 flex flex-col-reverse lg:flex-col justify-end items-center md:justify-center gap-5 h-[calc(100svh-80px)] md:h-[calc(100svh-80px)] bg-bottom bg-repeat-x lg:bg-none lg:px-10 pt-44 pb-0 lg:pb-40"
         style={{ backgroundImage: `url(${svgs.heroPattern})` }}
         id="buy-coin"
       >

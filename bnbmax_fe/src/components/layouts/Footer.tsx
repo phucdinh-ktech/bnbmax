@@ -33,7 +33,7 @@ const Footer = () => {
         <p className="text-sm lg:text-base text-white text-opacity-50 lg:leading-loose text-center">
           Tòa nhà K-TECH, số 165 đường D5, phường 25, quận Bình Thạnh
         </p>
-        <div className="relative z-40 w-[127px] h-[94px] lg:mt-28">
+        <div className="relative z-40 w-12 lg:w-auto h-[94px] lg:mt-28">
           <img
             src={svgs.bnbFooter}
             alt="bnb-footer"
