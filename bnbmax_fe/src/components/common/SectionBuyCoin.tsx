@@ -6,8 +6,9 @@ const SectionBuyCoin = () => {
   return (
     <>
       <section
-        className="w-full relative px-10 flex flex-col justify-end items-center md:justify-center h-[calc(100svh-80px)] md:h-[calc(100svh-80px)] bg-no-repeat bg-cover bg-bottom lg:bg-none lg:px-10 pt-44 pb-0 lg:pb-40"
+        className="w-full relative px-10 flex flex-col-reverse lg:flex-col justify-end items-center md:justify-center gap-5 h-[calc(100svh-80px)] md:h-[calc(100svh-80px)] bg-no-repeat bg-cover bg-bottom lg:bg-none lg:px-10 pt-44 pb-0 lg:pb-40"
         style={{ backgroundImage: `url(${svgs.heroPattern})` }}
+        id="buy-coin"
       >
         <div className="max-w-[1280px] w-full mx-auto mb-[10%]">
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-20 lg:gap-5">
@@ -15,7 +16,8 @@ const SectionBuyCoin = () => {
             <DepositBox className="hidden lg:flex" />
           </div>
         </div>
-        <div className="absolute top-[19%] left-[50%] translate-x-[-50%] translate-y-[-50%] lg:right-[30%] lg:top-auto lg:bottom-[15%] lg:translate-x-1 lg:translate-y-1 max-w-[60%] size-[360px] mx-auto">
+
+        <div className="lg:absolute lg:top-[30%] lg:right-[40%] lg:translate-x-1/2 max-w-[60%] lg:max-w-none">
           <img
             src={svgs.heroShape}
             alt="here-shape-icon"
@@ -28,9 +30,10 @@ const SectionBuyCoin = () => {
         >
           <img src={svgs.arrowDown} className="w-full h-full" />
         </a>
+
         <a
           href="#"
-          className="w-11 h-11 p-[17.5px_16px] flex lg:hidden items-center justify-center bg-white hover:bg-primary rounded-full mb-14 animate-bounce mt-2 duration-300"
+          className="absolute bottom-14 w-11 h-11 p-[17.5px_16px] flex lg:hidden items-center justify-center bg-white hover:bg-primary rounded-full mb-14 animate-bounce mt-2 duration-300"
         >
           <img src={svgs.arrowDown} className="w-full h-full" />
         </a>
