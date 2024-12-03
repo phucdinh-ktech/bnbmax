@@ -4,19 +4,14 @@
 
 // import reactLogo from "./assets/react.svg";
 
-import { ConfigProvider } from "antd";
+import { AppRouter } from "../src/router/AppRouter";
 import "./App.css";
-import RootLayout from "@/components/layouts/RootLayout";
 
 function App() {
   // const bears = useBearStore(state => state.bears);
   // const increasePopulation = useBearStore(state => state.increasePopulation);
 
-  return (
-    <ConfigProvider>
-      <RootLayout />
-    </ConfigProvider>
-  );
+  return <AppRouter />;
 }
 
 export default App;
