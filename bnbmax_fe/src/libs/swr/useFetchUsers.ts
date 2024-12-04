@@ -1,7 +1,7 @@
 import useSWR from "swr";
 
-import { urls } from "@/constants/urls";
 import { UserType } from "@/types/common/user";
+import { urls } from "@/utils/constants/urls";
 
 import { fetcher } from "./fetcher";
 
