@@ -1,10 +1,11 @@
 import images from "@/assets/images";
-import svgs from "@/assets/svgs";
+import Withdraw from "@/components/common/Withdraw";
 import WrapperCardLevel from "@/components/common/WrapperCardLevel";
 import useWindowSize from "@/utils/functions/useSizeWindow";
 
 const SectionLevels = () => {
   const { width } = useWindowSize();
+
   return (
     <section
       id="levels"
@@ -23,16 +24,7 @@ const SectionLevels = () => {
                 <hr className="w-14" />
                 <span className="text-3xl lg:text-4xl font-bold">0 BNB </span>
               </div>
-              <button className="w-fit min-w-[180px] h-fit flex gap-4 items-center bg-white hover:bg-primary text-sm lg:text-base text-black px-5 lg:px-8 py-3 rounded-xl">
-                <span> withdraw Now </span>
-                <div className="w-[20px] h-[10px]">
-                  <img
-                    src={svgs.arrowRightBlack}
-                    alt="arrow-right-black"
-                    className="w-full h-full"
-                  />
-                </div>
-              </button>
+              <Withdraw />
             </div>
           </div>
         </div>
