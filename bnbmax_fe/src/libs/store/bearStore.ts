@@ -6,9 +6,9 @@ interface BearState {
   removeAllBears: () => void;
 }
 
-const useBearStore = create<BearState>((set) => ({
+const useBearStore = create<BearState>(set => ({
   bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  increasePopulation: () => set(state => ({ bears: state.bears + 1 })),
   removeAllBears: () => set({ bears: 0 }),
 }));
 

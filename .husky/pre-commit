@@ -1,0 +1,2 @@
+cd bnbmax_fe && pnpm run prettier && pnpm run lint && pnpm run build
+cd ../bnbmax_be && yarn install

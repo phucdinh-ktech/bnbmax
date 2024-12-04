@@ -1,13 +1,13 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { API_URL } from '@/constants/urls';
-import { variables } from '@/constants/variables';
+import { API_URL } from "@/constants/urls";
+import { variables } from "@/constants/variables";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
   headers: {
-    accept: 'application/json',
-    'Content-Type': 'application/json',
+    accept: "application/json",
+    "Content-Type": "application/json",
   },
 });
 
@@ -40,7 +40,7 @@ axiosInstance.interceptors.response.use(
       sessionStorage.removeItem(variables.ACCESS_TOKEN);
       localStorage.removeItem(variables.ACCESS_TOKEN);
       window.location.href = `/Login?redirect=${window.location.pathname}`;
-      console.warn('Hết phiên truy cập, vui lòng đăng nhập lại');
+      console.warn("Hết phiên truy cập, vui lòng đăng nhập lại");
     } else if (status === 400) {
       console.error(error.response.data.messageDetail);
     }

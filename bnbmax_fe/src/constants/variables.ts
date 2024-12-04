@@ -1,3 +1,3 @@
 export const variables = {
-  ACCESS_TOKEN: 'access-token',
+  ACCESS_TOKEN: "access-token",
 };
