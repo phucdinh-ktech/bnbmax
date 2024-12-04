@@ -44,7 +44,6 @@ const DepositBox = (props: IDepositBoxProps) => {
     fetchData();
   }, []);
 
-  console.log(totalDeposit);
   return (
     <div
       className={clsx(
