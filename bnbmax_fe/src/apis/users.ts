@@ -1,5 +1,5 @@
 import axiosInstance from "@/apis/axiosInstance";
-import { urls } from "@/constants/urls";
+import { urls } from "@/utils/constants/urls";
 
 export const usersApi = {
   getAll(params?: string) {

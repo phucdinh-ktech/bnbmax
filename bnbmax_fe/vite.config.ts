@@ -6,6 +6,9 @@ import { defineConfig } from "vite";
 const __dirname = path.resolve();
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    target: "esnext", // This will enable top-level await in supported browsers
+  },
   resolve: {
     alias: {
       "@/": path.resolve(__dirname, "./src/"),

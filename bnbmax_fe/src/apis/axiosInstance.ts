@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { API_URL } from "@/constants/urls";
-import { variables } from "@/constants/variables";
+import { API_URL } from "@/utils/constants/urls";
+import variables from "@/utils/constants/variables";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
