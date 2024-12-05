@@ -55,7 +55,10 @@ const ConnectWalletButton = (props: IConnectWalletButtonProps) => {
 
   if (type === "page" && isShow)
     return (
-      <button className="w-fit flex gap-4 items-center bg-primary hover:bg-secondary text-white px-10 py-3 rounded-xl duration-300">
+      <button
+        className="w-fit flex gap-4 items-center bg-primary hover:bg-secondary text-white px-10 py-3 rounded-xl duration-300"
+        onClick={connectWallet}
+      >
         {loading && <Spin size="default" />}
         <span>Connect Wallet</span>
         <div className="w-[20px] h-[10px]">
