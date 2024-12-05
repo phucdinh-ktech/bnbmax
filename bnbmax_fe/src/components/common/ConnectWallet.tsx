@@ -18,7 +18,7 @@ const ConnectWalletButton = (props: IConnectWalletButtonProps) => {
   const { walletConnect, addressWallet } = useWalletStore();
   const connectWallet = async () => {
     if (addressWallet) {
-      console.log("Đã kết nối Wallet", addressWallet);
+      console.log("Đã kết nối ví", addressWallet);
       return;
     }
     if (typeof window.ethereum !== "undefined") {
@@ -35,7 +35,7 @@ const ConnectWalletButton = (props: IConnectWalletButtonProps) => {
         }
         localStorage.setItem(variables.LOCAL_STORAGE_ADDRESS, address);
         walletConnect(address);
-        toast.success("Kết nối Wallet thành công!");
+        toast.success("Kết nối ví thành công!");
       } catch (error) {
         console.error("Kết nối MetaMask thất bại:", error);
         toast.error(`Kết nối MetaMask thất bại: ${error}`);
