@@ -5,11 +5,14 @@ import toast from "react-hot-toast";
 
 import svgs from "@/assets/svgs";
 import useAbiStore from "@/libs/store/abiStore";
+import useWalletStore from "@/libs/store/walletStore";
 
 const Withdraw = () => {
   const { enhancedStakingContract } = useAbiStore();
   const [loading, setLoading] = useState<boolean>(false);
+  const { addressWallet } = useWalletStore();
   const handleWithdraw = async () => {
+    if (!addressWallet) toast.error("Vui lòng kết nối ví!");
     setLoading(true);
     try {
       const amount = ethers.parseEther("0.01");

@@ -6,13 +6,7 @@ import EnhancedStaking_ABI from "../../../EnhancedStaking_ABI.json";
 const ENHANCED_STAKING_ADDRESS = "0x3c8DF1798DEAbb84B67fc8488CdDeDe9FE2d949E";
 
 async function getSignerAndContract() {
-  console.log("getSignerAndContract");
   try {
-    // Check if window.ethereum is available
-    if (typeof window.ethereum === "undefined") {
-      toast.error("Vui lòng tải Metamask!");
-    }
-
     const provider = new ethers.BrowserProvider(window.ethereum);
 
     // Request account access if necessary
@@ -29,7 +23,9 @@ async function getSignerAndContract() {
     return enhancedStakingContract;
   } catch (error) {
     console.error("Error initializing the contract or signer:", error);
-    toast.error("Vui lòng tải Metamask!");
+    setTimeout(() => {
+      toast.error("Vui lòng cài đặt MetaMask!");
+    }, 100);
   }
 }
 
