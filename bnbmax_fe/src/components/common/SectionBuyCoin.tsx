@@ -38,7 +38,7 @@ const SectionBuyCoin = () => {
           <img src={svgs.arrowDown} className="w-full h-full" />
         </a>
       </section>
-      <div className="flex lg:hidden px-6 py-20">
+      <div className="flex justify-center lg:hidden px-6 py-20">
         <DepositBox className="flex" />
       </div>
     </>
