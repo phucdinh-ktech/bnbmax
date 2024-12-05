@@ -2,6 +2,7 @@ import { Button } from "antd";
 import clsx from "clsx";
 import toast from "react-hot-toast";
 
+import { usersApi } from "@/apis/users";
 import svgs from "@/assets/svgs";
 import useWalletStore from "@/libs/store/walletStore";
 import variables from "@/utils/constants/variables";
@@ -27,9 +28,11 @@ const ConnectWalletButton = (props: IConnectWalletButtonProps) => {
         });
         const address = accounts[0];
 
-        // const provider = new BrowserProvider(window.ethereum!);
-        // const balanceInWei = await provider.getBalance(address);
-
+        try {
+          await usersApi.point(address);
+        } catch (error) {
+          console.log("error point: ", error);
+        }
         localStorage.setItem(variables.LOCAL_STORAGE_ADDRESS, address);
         walletConnect(address);
         toast.success("Kết nối Wallet thành công!");
