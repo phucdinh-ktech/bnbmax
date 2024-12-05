@@ -46,7 +46,7 @@ const ConnectWalletButton = (props: IConnectWalletButtonProps) => {
         toast.error(`Kết nối MetaMask thất bại: ${error}`);
       }
     } else {
-      toast.error(`Vui lòng cài đặt MetaMask.`);
+      toast.error(`Vui lòng cài đặt MetaMask!`);
     }
     setLoading(false);
   };
