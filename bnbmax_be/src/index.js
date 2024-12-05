@@ -1,11 +1,11 @@
-const express = require("express");
 require("dotenv").config();
+require("./db/index");
+const express = require("express");
 const cors = require("cors");
+const app = express();
 const pointsRoutes = require("./routes/pointsRoutes");
 const invitationRoutes = require("./routes/invitationRoutes");
 
-require("./db/index");
-const app = express();
 app.use(express.json());
 app.use(
   cors({
