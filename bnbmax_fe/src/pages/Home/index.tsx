@@ -1,25 +1,38 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 
+import { usersApi } from "@/apis/users";
 import images from "@/assets/images";
 import SectionBuyCoin from "@/components/common/SectionBuyCoin";
 import SectionLevels from "@/components/common/SectionLevels";
 import SectionReferral from "@/components/common/SectionReferral";
 import SectionReward from "@/components/common/SectionReward";
 import Footer from "@/components/layouts/Footer";
+import useWalletStore from "@/libs/store/walletStore";
 const Home = () => {
+  const { addressWallet } = useWalletStore();
+  const [searchParams] = useSearchParams();
+
+  const receiverWallet = searchParams.get("up");
+
+  const firstLoadRef = useRef<boolean>(true);
   useEffect(() => {
-    const fetchStakeAmount = async () => {
+    const inviteUser = async (
+      addressWallet: string,
+      receiverWallet: string
+    ) => {
+      firstLoadRef.current = false;
       try {
-        const userAddress = "0x9ab62fD1563c7fE307e342D1924031f88Ea8A30c";
-        // const stakeAmount = await enhancedStakingContract.getStake(userAddress);
-        console.log(userAddress);
+        await usersApi.inviteUser(addressWallet, receiverWallet);
       } catch (error) {
-        console.log(error);
+        console.log("error invite user: ", error);
       }
     };
+    if (receiverWallet && addressWallet && firstLoadRef.current) {
+      inviteUser(addressWallet, receiverWallet);
+    }
+  }, [receiverWallet, addressWallet]);
 
-    fetchStakeAmount();
-  }, []);
   return (
     <div className="w-full h-full text-white">
       <SectionBuyCoin />

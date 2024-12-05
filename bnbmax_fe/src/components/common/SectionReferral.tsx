@@ -33,7 +33,7 @@ const SectionReferral = () => {
           </p>
           <div className="w-fit max-w-full flex items-center gap-5 bg-[#1D1D1D] bg-opacity-75 px-3 py-1.5 lg:py-2.5 rounded-2xl lg:mt-6">
             <span className="max-w-full text-sm px-2 truncate">
-              https://www.bnbmax.org/?up=
+              http://localhost:5173/?up=
               {addressWallet ? addressWallet : "null"}
             </span>
             <button className="group w-10 lg:w-12 h-10 lg:h-12 p-[12px_11px] flex shrink-0 items-center justify-center bg-white/20 rounded-xl duration-300">
