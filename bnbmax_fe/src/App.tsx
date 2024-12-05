@@ -20,9 +20,11 @@ function App() {
         position="top-right"
         reverseOrder={false}
         toastOptions={{
-          className: "",
           style: {
             fontSize: "14px",
+            background: "rgba(0, 0, 0, 1)",
+            color: "#ffffff",
+            border: "0.2px solid #6b6969",
           },
         }}
       />

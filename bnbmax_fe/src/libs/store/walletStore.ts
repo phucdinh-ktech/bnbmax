@@ -1,18 +1,17 @@
 import { create } from "zustand";
 
-import variables from "@/utils/constants/variables";
-
 type WalletStore = {
   addressWallet?: string;
+  balance: string;
   walletConnect: (address: string) => void;
+  balanceAmount: (amount: string) => void;
 };
 
-const local_address =
-  localStorage.getItem(variables.LOCAL_STORAGE_ADDRESS) || undefined;
-
 const useWalletStore = create<WalletStore>(set => ({
-  addressWallet: local_address,
+  addressWallet: undefined,
+  balance: "0",
   walletConnect: address => set({ addressWallet: address }),
+  balanceAmount: amount => set({ balance: amount }),
 }));
 
 export default useWalletStore;

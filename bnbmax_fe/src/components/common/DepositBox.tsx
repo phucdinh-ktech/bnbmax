@@ -1,41 +1,52 @@
+import { Spin } from "antd";
 import clsx from "clsx";
-import { ethers } from "ethers";
+import { ethers, formatEther, BrowserProvider } from "ethers";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-import { enhancedStakingContract } from "@/libs/ABI/stakingContract";
+import useAbiStore from "@/libs/store/abiStore";
 import useWalletStore from "@/libs/store/walletStore";
+
 interface IDepositBoxProps {
   className?: string;
 }
 const DepositBox = (props: IDepositBoxProps) => {
   const { className } = props;
 
-  const { addressWallet } = useWalletStore();
+  const { addressWallet, balance, balanceAmount } = useWalletStore();
+  const { enhancedStakingContract } = useAbiStore();
+
   const [invest, setInvest] = useState<string>("0");
   const [totalDeposit, setTotalDeposit] = useState<string>("0");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleDeposit = async () => {
     if (!addressWallet) {
       toast.error("Vui lòng kết nối Wallet!");
       return;
     }
-
+    setLoading(true);
     try {
       const valueUint256 = ethers.parseEther(invest);
-      console.log("valueUint256", valueUint256);
-      await enhancedStakingContract.stake(valueUint256);
+      await enhancedStakingContract?.stake(valueUint256);
+      if (addressWallet) {
+        const provider = new BrowserProvider(window.ethereum!);
+        const balanceInWei = await provider.getBalance(addressWallet);
+        balanceAmount(formatEther(balanceInWei));
+      }
       toast.error("Gửi tiền thành công");
-    } catch (error) {
+      /* eslint-disable @typescript-eslint/no-explicit-any */
+    } catch (error: any) {
       console.log("error deposit", error);
-      toast.error(`Gửi tiền thất bại: ${error}`);
+      toast.error(`Gửi tiền thất bại: ${error?.reason}`);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await enhancedStakingContract.totalStaked();
+        const data = await enhancedStakingContract?.totalStaked();
         setTotalDeposit(data);
       } catch (error) {
         console.log("error", error);
@@ -43,6 +54,10 @@ const DepositBox = (props: IDepositBoxProps) => {
     };
     fetchData();
   }, []);
+
+  const handlePercentInvest = (percent: number) => {
+    setInvest(Number((Number(balance) * percent).toFixed(6)).toString());
+  };
 
   return (
     <div
@@ -56,7 +71,7 @@ const DepositBox = (props: IDepositBoxProps) => {
           <span className="text-primary">Total Deposit</span>
           <hr className="w-14" />
           <span className="text-2xl font-bold">
-            {totalDeposit.toString()} BNB{" "}
+            {totalDeposit?.toString()} BNB
           </span>
         </div>
         <div className="w-full flex flex-col md:items-center gap-4 p-5 border border-white border-opacity-30 rounded-xl">
@@ -82,30 +97,46 @@ const DepositBox = (props: IDepositBoxProps) => {
         </button>
       </div>
       <div className="w-72 flex gap-1 justify-center p-1 border border-white border-opacity-30 rounded-full mx-auto">
-        <button className="text-[#ffffff80] font-semibold text-xs py-1 px-2">
+        <button
+          className="text-[#ffffff80] font-semibold text-xs py-1 px-2"
+          onClick={() => handlePercentInvest(0.1)}
+        >
           10%
         </button>
-        <button className="text-[#ffffff80] font-semibold text-xs py-1 px-2">
+        <button
+          className="text-[#ffffff80] font-semibold text-xs py-1 px-2"
+          onClick={() => handlePercentInvest(0.25)}
+        >
           25%
         </button>
-        <button className="text-[#ffffff80] font-semibold text-xs py-1 px-2">
+        <button
+          className="text-[#ffffff80] font-semibold text-xs py-1 px-2"
+          onClick={() => handlePercentInvest(0.5)}
+        >
           50%
         </button>
-        <button className="text-[#ffffff80] font-semibold text-xs py-1 px-2">
+        <button
+          className="text-[#ffffff80] font-semibold text-xs py-1 px-2"
+          onClick={() => handlePercentInvest(0.75)}
+        >
           75%
         </button>
-        <button className="text-[#ffffff80] font-semibold text-xs py-1 px-2">
+        <button
+          className="text-[#ffffff80] font-semibold text-xs py-1 px-2"
+          onClick={() => handlePercentInvest(1)}
+        >
           Max
         </button>
       </div>
       <p className="text-[10px] text-white text-opacity-50 font-semibold text-center">
-        Your balance 0 BNB
+        Your balance {balance} BNB
       </p>
       <button
-        className="w-full bg-primary hover:lg:bg-white hover:lg:text-primary font-semibold py-3 px-5 rounded-xl duration-300"
+        className="flex justify-center gap-4 w-full bg-primary hover:lg:bg-white hover:lg:text-primary font-semibold py-3 px-5 rounded-xl duration-300"
         onClick={handleDeposit}
       >
         Deposit
+        {loading && <Spin size="default" />}
       </button>
     </div>
   );

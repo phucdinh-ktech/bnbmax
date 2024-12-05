@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 import images from "@/assets/images";
 import svgs from "@/assets/svgs";
 import useWalletStore from "@/libs/store/walletStore";
@@ -6,6 +8,17 @@ import useWindowSize from "@/utils/functions/useSizeWindow";
 const SectionReferral = () => {
   const { width } = useWindowSize();
   const { addressWallet } = useWalletStore();
+  const currentURL = window.location.href;
+  const handleCopyURL = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        `${currentURL}?up=${addressWallet ? addressWallet : "null"}`
+      );
+      toast.success("Sao chép thành công!");
+    } catch (err) {
+      toast.success(`Sao chép thất bại: ${err}`);
+    }
+  };
   return (
     <section
       id="referral"
@@ -33,10 +46,13 @@ const SectionReferral = () => {
           </p>
           <div className="w-fit max-w-full flex items-center gap-5 bg-[#1D1D1D] bg-opacity-75 px-3 py-1.5 lg:py-2.5 rounded-2xl lg:mt-6">
             <span className="max-w-full text-sm px-2 truncate">
-              http://localhost:5173/?up=
+              {currentURL}?up=
               {addressWallet ? addressWallet : "null"}
             </span>
-            <button className="group w-10 lg:w-12 h-10 lg:h-12 p-[12px_11px] flex shrink-0 items-center justify-center bg-white/20 rounded-xl duration-300">
+            <button
+              className="group w-10 lg:w-12 h-10 lg:h-12 p-[12px_11px] flex shrink-0 items-center justify-center bg-white/20 rounded-xl duration-300"
+              onClick={handleCopyURL}
+            >
               <img src={svgs.copy} className="w-full h-full" />
             </button>
           </div>
