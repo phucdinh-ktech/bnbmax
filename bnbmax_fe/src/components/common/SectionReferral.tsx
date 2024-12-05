@@ -8,7 +8,7 @@ import useWindowSize from "@/utils/functions/useSizeWindow";
 const SectionReferral = () => {
   const { width } = useWindowSize();
   const { addressWallet } = useWalletStore();
-  const currentURL = window.location.href;
+  const currentURL = window.location.origin;
   const handleCopyURL = async () => {
     try {
       await navigator.clipboard.writeText(

@@ -22,7 +22,7 @@ const DepositBox = (props: IDepositBoxProps) => {
 
   const handleDeposit = async () => {
     if (!addressWallet) {
-      toast.error("Vui lòng kết nối Wallet!");
+      toast.error("Vui lòng kết nối ví!");
       return;
     }
     setLoading(true);
@@ -56,6 +56,7 @@ const DepositBox = (props: IDepositBoxProps) => {
   }, []);
 
   const handlePercentInvest = (percent: number) => {
+    if (!addressWallet) toast.error("Vui lòng kết nối ví!");
     setInvest(Number((Number(balance) * percent).toFixed(6)).toString());
   };
 
